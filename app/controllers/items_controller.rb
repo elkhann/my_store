@@ -66,11 +66,8 @@ class ItemsController < ApplicationController
   end
 
   def find_item
-    @item = Item.find(params[:id])
-  end
-
-  def check_if_admin
-    #render plain: "Access denied", status: 403 unless params[:admin]
+    @item = Item.where(id: params[:id]).first
+    render_404 unless @item
   end
 
 end
