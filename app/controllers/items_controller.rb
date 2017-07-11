@@ -44,7 +44,9 @@ class ItemsController < ApplicationController
 
   # /items/1 DELETE
   def destroy
-
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to action: "index"
   end
 
   private
